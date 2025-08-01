@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme{
+    --font-primary: "Space Grotesk", sans-serif;
+    --font-josefin:"Josefin Sans", sans-serif;
+
+    --color-brown: #53423e;
+--color-lightBrown: #645550;
+--color-darkBrown: #2c2523;
+--color-black: #1e1917;
+--color-white: #f1e1d9;
+--color-cyan: #15d1e9;
+--color-lightCyan: #88e5f0;
+--color-darkCyan: #0091b3;
+--color-orange: #fb9718;
+--color-lightOrange: #fac27b;
+--color-darkOrange: #d28422;
+--color-grey: #626965;
+--color-lightGrey: #978580;
+--color-darkGrey: #3f4441;
+
+  --shadow-3xl: 0px 0px 20px 0px rgba(94, 206, 220, 0.5); 
+  --shadow-cyanmedium:10px 10px 200px 150px rgba(94,206,220,0.5);
+  --shadow-orangemedium:10px 10px 200px 150px rgba(240,169,79,0.5);
+
+  --breakpoint-sm: 350px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1045px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+--animate-spin: spin 10s ease-in-out infinite;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
