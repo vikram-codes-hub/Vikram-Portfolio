@@ -111,7 +111,7 @@ const Certificates = () => {
     <motion.div variants={fadeIn('down',0.2)} 
               initial="hidden" 
               whileInView="show" 
-              viewport={{once:false,amount:0}}  className=" -mt-40 lg:mt-60 relative min-h-screen overflow-hidden bg-gradient-to-br ">
+              viewport={{once:false,amount:0}}  className=" -mt-42 lg:mt-60 relative min-h-screen overflow-hidden bg-gradient-to-br ">
       {/* Header Section */}
       <div className="relative z-10 text-center pt-16 pb-8">
         <h2 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
