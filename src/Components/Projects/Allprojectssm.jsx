@@ -2,8 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../Framer motion/Variant';
 import Projectcard from './Projectcard';
+
 const Allprojectssm = () => {
-      const projects = [
+  const projects = [
     {
       Name: "Hostel Scouts",
       Techused: ["React.js", "Tailwind", "Node.js", "Express", "MongoDb", "Socket.io"],
@@ -47,18 +48,30 @@ const Allprojectssm = () => {
   ];
 
   return (
-     <div className="w-full px-4 py-10 ">
+    <div className="w-full px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
         {projects.map((item, index) => (
-          <Projectcard
+          <motion.div
             key={index}
-            project={item.Name}
-            tech={item.Techused}
-            description={item.Description}
-            pimg={item.pimg}
-            ongoing={item.Ongoing}
-            Link={item.Link}
-          />
+            variants={fadeIn('up', 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.2, // Stagger delay: 0s, 0.2s, 0.4s, 0.6s, 0.8s
+              ease: "easeOut"
+            }}
+          >
+            <Projectcard
+              project={item.Name}
+              tech={item.Techused}
+              description={item.Description}
+              pimg={item.pimg}
+              ongoing={item.Ongoing}
+              Link={item.Link}
+            />
+          </motion.div>
         ))}
       </div>
     </div>

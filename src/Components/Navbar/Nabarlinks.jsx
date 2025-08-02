@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 
 const NavbarLinks = () => {
-  const links = [
+   const links = [
     { name: "Home", section: "home" },
     { name: "About", section: "about" },
     { name: "Skills", section: "skills" },

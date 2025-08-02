@@ -43,7 +43,7 @@ const Aboutme = () => {
           }
         }
         
-        const contentArea = section.querySelector('.flex.flex-col.md\\:flex-row');
+        const contentArea = section.querySelector('.flex.flex-col.lg\\:flex-row');
         if (contentArea) {
           const contentRect = contentArea.getBoundingClientRect();
           const contentTop = contentRect.top;
@@ -87,7 +87,7 @@ const Aboutme = () => {
     window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
-      window.removeRemoveListener('scroll', throttledScroll);
+      window.removeEventListener('scroll', throttledScroll);
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
@@ -122,12 +122,15 @@ const Aboutme = () => {
         ></motion.span>
       </div>
 
-      {/* Content section with tighter spacing */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 max-w-6xl mx-auto">
-        <div className="w-full md:flex-1 order-2 md:order-1">
-          <Aboutmetext />
+      {/* Content section with responsive layout */}
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="w-full lg:flex-1 order-2 lg:order-1 flex justify-center lg:justify-start">
+          <div className="max-w-2xl lg:max-w-none">
+            <Aboutmetext />
+          </div>
         </div>
-        <div className="w-full md:flex-1 order-1 md:order-2 flex justify-center">
+        {/* Image appears only on large screens (lg and above) */}
+        <div className="hidden lg:flex w-full lg:flex-1 order-1 lg:order-2 justify-center lg:justify-end">
           <Aboutmeimg />
         </div>
       </div>

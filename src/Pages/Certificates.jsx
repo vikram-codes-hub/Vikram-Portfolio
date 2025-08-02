@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, Pause, ExternalLink } from 'lucide-react';
-
+import { motion } from 'framer-motion';
+import { fadeIn } from '../Framer motion/Variant';
 const Certificates = () => {
   const [speed, setSpeed] = useState('medium');
   const [isPlaying, setIsPlaying] = useState(true);
@@ -84,7 +85,7 @@ const Certificates = () => {
     const [logoError, setLogoError] = useState(false);
     
     if (logoError) {
-      // Fallback to text-based logo if image fails
+     
       return (
         <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
           <div className="text-white font-bold text-lg">
@@ -107,7 +108,10 @@ const Certificates = () => {
   };
 
   return (
-    <div className="relative min-h-screen mt-18 overflow-hidden bg-gradient-to-br ">
+    <motion.div variants={fadeIn('down',0.2)} 
+              initial="hidden" 
+              whileInView="show" 
+              viewport={{once:false,amount:0}}  className="relative min-h-screen mt-18 overflow-hidden bg-gradient-to-br ">
       {/* Header Section */}
       <div className="relative z-10 text-center pt-16 pb-8">
         <h2 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
@@ -253,7 +257,7 @@ const Certificates = () => {
           }
         }
       `}</style>
-    </div>
+    </motion.div>
   );
 };
 
