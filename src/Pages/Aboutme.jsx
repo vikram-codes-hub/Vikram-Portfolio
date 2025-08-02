@@ -97,7 +97,7 @@ const Aboutme = () => {
       ref={sectionRef}
       className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8"
     >
-      {/* Title section with reduced bottom margin */}
+      
       <div className="relative text-center mb-8 sm:mb-10 md:mb-12">
         <motion.h1 
           variants={fadeIn('down',0.2)} 
@@ -122,14 +122,14 @@ const Aboutme = () => {
         ></motion.span>
       </div>
 
-      {/* Content section with responsive layout */}
+    
       <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-12 max-w-6xl mx-auto">
         <div className="w-full lg:flex-1 order-2 lg:order-1 flex justify-center lg:justify-start">
           <div className="max-w-2xl lg:max-w-none">
             <Aboutmetext />
           </div>
         </div>
-        {/* Image appears only on large screens (lg and above) */}
+
         <div className="hidden lg:flex w-full lg:flex-1 order-1 lg:order-2 justify-center lg:justify-end">
           <Aboutmeimg />
         </div>
