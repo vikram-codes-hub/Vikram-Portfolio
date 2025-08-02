@@ -1,24 +1,33 @@
-# Logs
-logs
-*.log
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Local environment variables
+.env
+.env.local
+.env.*.local
+
+# Log files
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Vercel folder (optional, in case you use CLI deploy)
+.vercel/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# MacOS system files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Windows system files
+Thumbs.db
+
+# IDE folders
+.vscode/
+.idea/
+
+# Optional: local development preview screenshots
+*.png
+*.jpg
+*.jpeg

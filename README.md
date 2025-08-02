@@ -16,12 +16,13 @@ Welcome to my **Portfolio Website**, a showcase of my skills, projects, and expe
 - **React.js**
 - **Tailwind CSS**
 - **Framer Motion**
+- **tsParticles** – for dynamic animated backgrounds
 - **React Icons**
 
 ### Tools & Deployment
 - **Vite** for fast development
 - **Git** and **GitHub** for version control
-- **(Optional)** Vercel / Netlify for hosting
+- **(Vercel )**  for hosting
 
 ---
 
@@ -37,22 +38,22 @@ Welcome to my **Portfolio Website**, a showcase of my skills, projects, and expe
 
 ## 📸 Screenshots
 
-> Replace the image URLs with your own hosted screenshots or local paths in the repo.
+
 
 ### 🏠 Homepage
-![Homepage](https://your-image-url.com/homepage.png)
+![Homepage](/Portfolio/public/Home.png)
 
 ### 🧑‍💻 About Me
-![About Me](https://your-image-url.com/about.png)
+![About Me](/Portfolio/public/Aboutme.png)
 
 ### 🛠️ Skills
-![Skills](https://your-image-url.com/skills.png)
+![Skills](/Portfolio/public/Skills.png)
 
 ### 📁 Projects
-![Projects](https://your-image-url.com/projects.png)
+![Projects](/Portfolio/public/Projects.png)
 
 ### 🎓 Certifications
-![Certifications](https://your-image-url.com/certifications.png)
+![Certifications](/Portfolio/public/certificates.png)
 
 ---
 
