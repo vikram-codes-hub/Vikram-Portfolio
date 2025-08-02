@@ -1,7 +1,7 @@
 import React from "react";
-import Skillstext from "../components/My skills/Skillstext";
-import Allskills from "../components/My skills/Allskills";
-import Allskilssm from "../components/My skills/Allskilssm";
+import Skillstext from "../Components/my-skills/Skillstext";
+import Allskills from "../Components/my-skills/Allskills";
+import Allskilssm from "../Components/my-skills/Allskilssm";
 import {motion} from 'framer-motion'
 import { fadeIn } from '../Framer motion/Variant'
 
