@@ -6,7 +6,7 @@ const Left = () => {
 
   const handleDownloadResume = () => {
     // Replace with the actual path to your resume file
-    const resumeUrl = '/assets/Vikram_Resume.pdf'; // or wherever your resume is stored
+    const resumeUrl = 'https://drive.google.com/drive/folders/1Y1HNLyLBAnzgvUlzsBewwpf-HoIIjnNi';
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'Vikram_Singh_Resume.pdf'; // Name for the downloaded file
