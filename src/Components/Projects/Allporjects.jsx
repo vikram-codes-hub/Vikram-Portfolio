@@ -10,7 +10,7 @@ const Allporjects = () => {
       Description: "A student-focused web app to discover nearby hostels with photos, ratings, chat support, carpooling, and event updates—making campus living easy and connected.",
       pimg: "/Hostel_Scout.jpg",
       Ongoing: true,
-      Link:"https://github.com/vikram-codes-hub/Hostels-scouts-Full-stack"
+      Link:"https://github.com/vikram-codes-hub/test-hostles"
     },
     {
       Name: "E-commerce website",
