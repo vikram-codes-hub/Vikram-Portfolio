@@ -15,15 +15,15 @@ const App = () => {
   return (
     <div>
       <DarkStarsBackground/>
-      <Navbar/>
+     <Navbar/>
       <Home/>
-      <Aboutme/>
-      <Skillsmain/>
-      <Projects/>
-      <Experience/>
-      <Certificates/>
-      <Conatctme/>
-      <Footer/>
+      {/* <Aboutme/> */}
+      {/* <Skillsmain/> */}
+      {/* <Projects/> */}
+      {/* <Experience/> */}
+      {/* <Certificates/> */}
+      {/* <Conatctme/> */}
+      {/* <Footer/> */ }
       {/* <Helpersection/> */}
     </div>
   )
