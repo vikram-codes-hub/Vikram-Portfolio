@@ -48,8 +48,8 @@ const Allprojectssm = () => {
   ];
 
   return (
-    <div className="w-full px-4 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
+    <div className="w-full px-4 py-10 overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 justify-items-center max-w-6xl mx-auto">
         {projects.map((item, index) => (
           <motion.div
             key={index}
@@ -59,9 +59,10 @@ const Allprojectssm = () => {
             viewport={{ once: false, amount: 0.2 }}
             transition={{
               duration: 0.6,
-              delay: index * 0.2, // Stagger delay: 0s, 0.2s, 0.4s, 0.6s, 0.8s
+              delay: index * 0.2,
               ease: "easeOut"
             }}
+            className="w-full max-w-md"
           >
             <Projectcard
               project={item.Name}

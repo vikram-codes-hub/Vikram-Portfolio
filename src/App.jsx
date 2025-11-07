@@ -19,12 +19,14 @@ const App = () => {
       <Home/>
       <Aboutme/>
       {/* <Skillsmain/> */}
-      {/* <Projects/> */}
+      <Projects/>
       {/* <Experience/> */}
       {/* <Certificates/> */}
       {/* <Conatctme/> */}
       {/* <Footer/> */ }
       {/* <Helpersection/> */}
+
+      
     </div>
   )
 }

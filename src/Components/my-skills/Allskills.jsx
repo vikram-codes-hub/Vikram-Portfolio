@@ -14,14 +14,9 @@ import { SiPrisma } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { FaPython } from "react-icons/fa";
-// import {cl} from "../assets/icons8-c++.svg"
 
 const Allskills = ({text,imgsvg}) => {
   const skills = [
-    // {
-    //   skill: "C/C++",
-    //   icon: cl,
-    // },
     {
       skill: "Java",
       icon: FaJava,
@@ -42,7 +37,6 @@ const Allskills = ({text,imgsvg}) => {
         skill:"JAVASCRIPT",
         icon: IoLogoJavascript
     },
-    
     {
         skill:"TYPESCRIPT",
         icon:SiTypescript
@@ -72,8 +66,8 @@ const Allskills = ({text,imgsvg}) => {
         icon: FaNodeJs
     },
   ];
-  return <div>
-    <div className="flex items-center justify-center relative gap-2 max-w-[1200px] mx-auto">
+  return <div className="overflow-hidden">
+    <div className="flex items-center justify-center relative gap-2 max-w-[82rem] mx-auto">
         {skills.map((item,index)=>{
             return (
                 <motion.div key={index}  variants={fadeIn('up',`0.${index}`)} initial="hidden" whileInView="show" viewport={{once:false,amount:0}}><Singleskil key={index} text={item.skill} imgsvg={<item.icon/>}/></motion.div>

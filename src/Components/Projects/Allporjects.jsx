@@ -2,8 +2,9 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../Framer motion/Variant';
 import Projectcard from './Projectcard';
+
 const Allporjects = () => {
-     const projects = [
+  const projects = [
     {
       Name: "Hostel Scouts",
       Techused: ["React.js", "Tailwind", "Node.js", "Express", "MongoDb", "Socket.io"],
@@ -45,8 +46,9 @@ const Allporjects = () => {
       Link:"https://github.com/vikram-codes-hub/By3ts-Project"
     }
   ];
+  
   return (
-    <div className="relative  w-[1200px]  mx-auto -mt-10 py-20 px-4">
+    <div className="relative w-full max-w-[1200px] mx-auto -mt-10 py-20 px-4 overflow-hidden">
       {/* Central vertical line */}
       <div className="absolute left-1/2 transform -translate-x-1/2 h-[3200px] w-1 bg-gray-700 z-0" />
 
@@ -54,8 +56,13 @@ const Allporjects = () => {
         {projects.map((item, index) => (
           <div key={index} className="relative flex items-center min-h-[250px]">
             {/* Dot */}
-            <a href={item.Link}  target="_blank"
-          rel="noopener noreferrer"><div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 w-4 h-4 bg-blue-500 rounded-full z-20" /></a>
+            <a 
+              href={item.Link}  
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 w-4 h-4 bg-blue-500 rounded-full z-20 hover:scale-125 transition-transform" />
+            </a>
 
             {/* Horizontal line */}
             <div
@@ -66,10 +73,13 @@ const Allporjects = () => {
 
             {/* Project Card */}
             <motion.div
-              className={`w-[45%] relative  z-20 ${
-                index % 2 === 0 ? 'ml-220 text-right' : 'mr-auto text-left'
+              className={`w-[45%] relative z-20 ${
+                index % 2 === 0 ? 'ml-[70%]' : 'mr-auto'
               }`}
-               variants={fadeIn(`${index % 2 === 0?'left':'right'}`,0.2)} initial="hidden" whileInView="show" viewport={{once:false,amount:0}}
+              variants={fadeIn(`${index % 2 === 0?'left':'right'}`,0.2)} 
+              initial="hidden" 
+              whileInView="show" 
+              viewport={{once:false,amount:0}}
             >
               <Projectcard
                 project={item.Name}
