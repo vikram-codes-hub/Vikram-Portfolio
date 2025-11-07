@@ -17,7 +17,7 @@ const App = () => {
       <DarkStarsBackground/>
      <Navbar/>
       <Home/>
-      {/* <Aboutme/> */}
+      <Aboutme/>
       {/* <Skillsmain/> */}
       {/* <Projects/> */}
       {/* <Experience/> */}
