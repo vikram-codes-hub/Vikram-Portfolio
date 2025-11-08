@@ -15,11 +15,11 @@ const ExperienceCard = ({ Title, Time, content, index, isLast }) => {
           {/* Decorative Dots */}
           <div className='absolute top-3 right-3 w-1 h-1 bg-slate-400 rounded-full opacity-60 animate-pulse'></div>
           <div className='absolute top-6 right-8 w-0.5 h-0.5 bg-slate-300 rounded-full opacity-40'></div>
-          <div className='absolute bottom-4 left-4 w-0.5 h-0.5 bg-slate-400 rounded-full opacity-50 animate-pulse delay-1000'></div>
+          <div className='absolute bottom-4 left-4 w-0.5 h-0.5 bg-slate-400 rounded-full opacity-50 animate-pulse'></div>
           
           {/* Text Content */}
           <div className='relative z-20'>
-            <h3 className='text-lg sm:text-xl font-bold text-slate-200 mb-2 group-hover:text-white transition-colors duration-300 leading-tight'>
+            <h3 className='text-base sm:text-lg md:text-xl font-bold text-slate-200 mb-2 group-hover:text-white transition-colors duration-300 leading-tight'>
               {Title}
             </h3>
             <p className='text-slate-400 text-xs sm:text-sm font-medium mb-3 group-hover:text-slate-300 transition-colors duration-300'>
@@ -37,7 +37,7 @@ const ExperienceCard = ({ Title, Time, content, index, isLast }) => {
         {/* Side Accent Line */}
         <div className='absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-3 w-4 sm:w-6 h-[2px] bg-gradient-to-r from-slate-500 to-transparent opacity-70'></div>
         
-        {/* Optional Timeline Dot (can be toggled via props) */}
+        {/* Timeline Dot */}
         <div className='absolute -left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full border-2 border-slate-300 shadow-lg opacity-80'>
           <div className='absolute inset-0.5 bg-slate-200 rounded-full animate-pulse'></div>
         </div>

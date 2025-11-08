@@ -16,36 +16,20 @@ const Experinecesm = () => {
   ];
 
   return (
-    // Title, Time, content, index, isLast
-    <div className='flex min-h-screen px-4 py-5 text-white'>
-       <div className='relative z-10 max-w-xl mx-auto flex flex-col gap-6'>
+    <div className='flex min-h-screen px-4 py-5 text-white overflow-hidden'>
+       <div className='relative z-10 w-full max-w-xl mx-auto flex flex-col gap-6'>
         {experiences.map((exp, index) => (
           <ExperienceCard
             key={index}
-            Title={exp.Title} Time={exp.Time}
+            Title={exp.Title} 
+            Time={exp.Time}
             content={exp.content}
             index={index}
             isLast={index === experiences.length - 1}
           />
         ))}
-    
        </div>
     </div>
-    // <div className='flex  min-h-screen px-4 py-8'>
-    
-
-    //   {/* Content */}
-    //   <div className='relative z-10 max-w-xl mx-auto flex flex-col gap-6'>
-    //     {experiences.map((exp, index) => (
-    //       <ExperienceCard
-    //         key={index}
-    //         {...exp}
-    //         index={index}
-    //         isLast={index === experiences.length - 1}
-    //       />
-    //     ))}
-    //   </div>
-    // </div>
   );
 };
 

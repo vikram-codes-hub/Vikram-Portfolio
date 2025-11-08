@@ -18,12 +18,12 @@ const App = () => {
      <Navbar/>
       <Home/>
       <Aboutme/>
-      {/* <Skillsmain/> */}
+      <Skillsmain/>
       <Projects/>
-      {/* <Experience/> */}
-      {/* <Certificates/> */}
-      {/* <Conatctme/> */}
-      {/* <Footer/> */ }
+      <Experience/>
+      <Certificates/>
+      <Conatctme/>
+      <Footer/>
       {/* <Helpersection/> */}
 
       

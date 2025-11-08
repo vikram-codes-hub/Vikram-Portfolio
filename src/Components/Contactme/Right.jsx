@@ -17,7 +17,6 @@ const Right = () => {
     error: null
   });
 
-  // Memoized input handler to prevent unnecessary re-renders
   const handleInputChange = useCallback((field, value) => {
     setFormData(prev => ({
       ...prev,
@@ -25,7 +24,6 @@ const Right = () => {
     }));
   }, []);
 
-  // Focus handlers
   const handleFocus = useCallback((field) => {
     setUiState(prev => ({ ...prev, focusedField: field }));
   }, []);
@@ -34,7 +32,6 @@ const Right = () => {
     setUiState(prev => ({ ...prev, focusedField: null }));
   }, []);
 
-  // Reset form state
   const resetForm = useCallback(() => {
     setFormData({
       fullName: '',
@@ -44,7 +41,6 @@ const Right = () => {
     setUiState(prev => ({ ...prev, showSuccess: false, error: null }));
   }, []);
 
-  // Email submission handler
   const sendEmail = async (e) => {
     e.preventDefault();
     
@@ -58,7 +54,6 @@ const Right = () => {
         { publicKey: 'TP7OjGImQSnUpk7K7' }
       );
       
-      // Success state with smooth transition
       setTimeout(() => {
         setUiState(prev => ({ 
           ...prev, 
@@ -67,12 +62,10 @@ const Right = () => {
         }));
       }, 300);
       
-      // Reset form after showing success message
       setTimeout(() => {
         resetForm();
       }, 1000);
       
-      // Auto-hide success message smoothly
       setTimeout(() => {
         setUiState(prev => ({ ...prev, showSuccess: false }));
       }, 10000);
@@ -87,9 +80,8 @@ const Right = () => {
     }
   };
 
-  // Common input classes for consistency
   const inputClasses = `
-    bg-[#F3F4F6] w-full sm:w-80 md:w-96 rounded-r-md 
+    bg-[#F3F4F6] w-full rounded-r-md 
     placeholder:text-gray-500 placeholder:text-[14px] sm:placeholder:text-base 
     text-black outline-none p-3 sm:p-2 text-[14px] sm:text-base 
     transition-all duration-300 hover:bg-white focus:bg-white 
@@ -102,13 +94,13 @@ const Right = () => {
   `;
 
   const getInputTransform = (field) => 
-    uiState.focusedField === field ? 'transform scale-[1.02] sm:scale-105' : '';
+    uiState.focusedField === field ? 'transform scale-[1.02]' : '';
 
   return (
-    <div className='text-white px-4 sm:px-0 ml-3'>
+    <div className='text-white w-full max-w-xl'>
       {/* Header Text */}
       <div className='mb-6 sm:mb-8'>
-        <p className='text-[14px] sm:text-[16px] font-medium leading-relaxed max-w-full sm:max-w-md transition-all duration-300 hover:text-gray-300'> 
+        <p className='text-[14px] sm:text-[16px] font-medium leading-relaxed transition-all duration-300 hover:text-gray-300'> 
           Whether you're looking to build a new website, improve an existing one, 
           or bring a fresh idea to life — I'm here to help.
         </p>
@@ -137,7 +129,7 @@ const Right = () => {
         </div>
       )}
       
-      <form ref={formRef} onSubmit={sendEmail} className='relative top-4 sm:top-8'>
+      <form ref={formRef} onSubmit={sendEmail} className='relative'>
         {/* Full Name Field */}
         <div className='flex flex-col gap-2 sm:gap-3'>
           <label className={getLabelClasses('fullName')}>
@@ -204,7 +196,7 @@ const Right = () => {
             hover:shadow-lg relative overflow-hidden text-[14px] sm:text-base
             ${uiState.isSubmitting 
               ? 'bg-[#8B77F1] cursor-not-allowed' 
-              : 'hover:bg-[#8B77F1] hover:scale-[1.02] sm:hover:scale-105 hover:shadow-[#A08FFF]/30'
+              : 'hover:bg-[#8B77F1] hover:scale-[1.02] hover:shadow-[#A08FFF]/30'
             }
           `}
           disabled={uiState.isSubmitting}
@@ -219,23 +211,8 @@ const Right = () => {
             </div>
           )}
           
-          {/* Button hover glow effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700"></div>
         </button>
-
-        {/* Floating particles - optimized with useMemo equivalent */}
-        {[...Array(4)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-[#A08FFF]/20 rounded-full animate-pulse pointer-events-none hidden sm:block"
-            style={{
-              left: `${10 + (i * 20) + (Math.random() * 10)}%`,
-              top: `${10 + (i * 15) + (Math.random() * 10)}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${2 + (i * 0.5)}s`
-            }}
-          />
-        ))}
       </form>
     </div>
   );
