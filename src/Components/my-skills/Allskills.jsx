@@ -67,7 +67,7 @@ const Allskills = ({text,imgsvg}) => {
     },
   ];
   return <div className="overflow-hidden">
-    <div className="flex items-center justify-center relative gap-2 max-w-[82rem] mx-auto">
+    <div className="flex items-center justify-center relative gap-2 max-w-[82rem] h-60 mx-auto">
         {skills.map((item,index)=>{
             return (
                 <motion.div key={index}  variants={fadeIn('up',`0.${index}`)} initial="hidden" whileInView="show" viewport={{once:false,amount:0}}><Singleskil key={index} text={item.skill} imgsvg={<item.icon/>}/></motion.div>
