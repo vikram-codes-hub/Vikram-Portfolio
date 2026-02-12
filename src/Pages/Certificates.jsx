@@ -46,6 +46,15 @@ const Certificates = () => {
     },
     {
       id: 5,
+      title: "NPTEL in DAA",
+      issuer: "NPTEL",
+      date: "2025",
+      link: "https://drive.google.com/drive/folders/19O2F65ZV-PoFqno3baw9CYDUWZTNa0Ba",
+      skills: ["DAA"],
+      logo: "/nptel.jpg"
+    },
+    {
+      id: 6,
       title: "Red Hat System Administration II",
       issuer: "Red Hat",
       date: "2025",
@@ -54,7 +63,7 @@ const Certificates = () => {
       logo: "https://www.redhat.com/cms/managed-files/Logo-Red_Hat-A-Standard-RGB.png"
     },
     {
-      id: 6,
+      id: 7,
       title: "Red Hat System Administration I",
       issuer: "Red Hat",
       date: "2025",

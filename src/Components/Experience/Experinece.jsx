@@ -15,7 +15,7 @@ const Experinece = () => {
       >
         <ExperienceCard 
           Title={"10x Club, MUJ – Core Committee"} 
-          Time={"May 2025 – Present"} 
+          Time={"May 2025 – october 2025"} 
           content={"Led peer workshops, coordinated events, and helped grow a tech-focused student community."} 
           index={0} 
           isLast={false} 
@@ -30,8 +30,8 @@ const Experinece = () => {
         className='w-full max-w-md'
       >
         <ExperienceCard 
-          Title={"Web Developer"} 
-          Time={"June 2023 – Present"} 
+          Title={"Web Developer Internship at Muj Thriftz"} 
+          Time={"August 2025 – Feb-2026"} 
           content={"1 year of experience. Built 3+ fully functional websites using modern frontend and backend tech."} 
           index={1} 
           isLast={false} 
