@@ -30,11 +30,16 @@
   --breakpoint-lg: 1045px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
-  --breakpoint-largetoxl:
+  --breakpoint-largetoxl:1400px;
 --animate-spin: spin 10s ease-in-out infinite;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
+
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 

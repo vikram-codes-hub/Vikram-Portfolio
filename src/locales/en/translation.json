@@ -1,0 +1,95 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "Achievements": "Achievments",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+
+  "hero": {
+    "role": "FULL-STACK DEVELOPER",
+    "title": "VIKRAM SINGH GANGWAR",
+    "subtitle": "A passionate web developer and a third-year student with strong problem-solving skills.",
+    "traits": {
+      "fastLearner": "Fast Learner",
+      "teamWork": "Team Work",
+      "detailsMaster": "Details Master"
+    }
+  },
+
+  "about": {
+    "title": "About Me",
+    "description": "I'm a passionate and self-driven web and blockchain developer currently pursuing my undergraduate degree. With a solid foundation in HTML, CSS, JavaScript, and React, I'm also diving deep into blockchain technologies to build innovative, real-world applications. I've worked on projects ranging from responsive websites to decentralized social media platforms, focusing on user experience, scalability, and utility. Whether it's creating sleek front-end designs or exploring smart contracts, I love turning ideas into digital solutions. Always eager to learn and grow, I'm building the skills that will shape the tech of tomorrow.",
+    "codingProfiles": "Check out my coding profiles:",
+    "myProjects": "My Projects"
+  },
+
+  "skills": {
+    "title": "MY SKILLS"
+  },
+
+  "projects": {
+    "title": "Projects",
+    "viewProject": "View Project",
+    "ongoing": "Ongoing",
+
+    "hostelScouts": {
+      "title": "Hostel Scouts",
+      "description": "A student-focused web app to discover nearby hostels with photos, ratings, chat support, carpooling, and event updates—making campus living easy and connected."
+    },
+
+    "ecommerce": {
+      "title": "E-commerce Website",
+      "description": "An intuitive online shopping platform featuring product recommendations, secure checkout, live chat support, event-based offers, and delivery tracking."
+    },
+
+    "chatApp": {
+      "title": "Real-time Chat App",
+      "description": "A real-time messaging app with one-on-one and group chats, online presence indicators, and a smooth, responsive interface for seamless communication."
+    },
+
+    "vartul": {
+      "title": "Vartul – Blockchain Social Media",
+      "description": "A decentralized social media platform where users earn tokens for engagement, powered by Proof-of-Stake and smart contracts for fair content monetization."
+    },
+
+    "spiko": {
+      "title": "Spiko - Real-time Video Translation",
+      "description": "A Chrome extension that translates video audio in real time for accessibility and learning."
+    }
+  },
+
+  "experience": {
+    "title": "Experience",
+
+    "club": {
+      "role": "10x Club, MUJ – Core Committee",
+      "duration": "May 2025 – October 2025",
+      "description": "Led peer workshops, coordinated events, and helped grow a tech-focused student community."
+    },
+
+    "internship": {
+      "role": "Web Developer Internship at Muj Thriftz",
+      "duration": "August 2025 – Feb 2026",
+      "description": "1 year of experience. Built 3+ fully functional websites using modern frontend and backend tech."
+    }
+  },
+
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Whether you're looking to build a new website, improve an existing one, or bring a fresh idea to life — I'm here to help.",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "message": "Your Message",
+    "send": "Send Message",
+    "downloadResume": "Download My Resume"
+  },
+
+  "footer": {
+    "copyright": "Copyright © Vikram. Made with ❤️ by Vikram"
+  }
+}

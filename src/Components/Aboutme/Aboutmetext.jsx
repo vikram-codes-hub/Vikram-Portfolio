@@ -33,7 +33,7 @@ const Aboutmetext = () => {
           </a>
           
           <a 
-            href="https://leetcode.com/u/Youhacked/" 
+            href="https://leetcode.com/u/__Scooby_Dooby/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center space-x-2 border border-orange-400 hover:border-orange-300 text-orange-400 hover:text-orange-300 hover:bg-orange-400/10 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105"

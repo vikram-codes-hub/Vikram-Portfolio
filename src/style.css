@@ -1,0 +1,88 @@
+/* play with vars for different effets */
+:root {
+  --color-cursor: 220, 90, 90;
+  --cursor-outline-shade: 0.3;
+  --cursor-size: 10px;
+  --cursor-outline-size: 12px;
+}
+
+html,
+body {
+  cursor: none;
+  background-color: #2f2c2c;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+html *,
+body * {
+  cursor: none;
+}
+
+#app {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 0.7em;
+  font-size: 3em;
+  font-weight: 800;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  transition: 0.5s ease;
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+p {
+  width: 80%;
+  max-width: 32em;
+  margin: 0 auto 1em;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  width: 3em;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto 1em;
+}
+
+h1 + hr {
+  margin: 0 auto 2em;
+}
+
+#cursor-dot,
+#cursor-dot-outline {
+  z-index: 999;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+#cursor-dot {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background-color: rgba(var(--color-cursor), 1);
+}
+
+#cursor-dot-outline {
+  width: var(--cursor-outline-size);
+  height: var(--cursor-outline-size);
+  background-color: rgba(var(--color-cursor), var(--cursor-outline-shade));
+}

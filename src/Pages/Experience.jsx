@@ -3,6 +3,7 @@ import Experinece from '../Components/Experience/Experinece'
 import Experinecesm from '../Components/Experience/Experinecesm'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../Framer motion/Variant'
+import ISavailable from '../Components/Experience/ISavailable'
 
 const Experience = () => {
   return (
@@ -32,6 +33,7 @@ const Experience = () => {
           className='mt-14 hidden lg:block overflow-hidden'
         >
           <Experinece/>
+          <ISavailable/>
         </motion.div>
         
         <div className='mt-10 block lg:hidden overflow-hidden'>
