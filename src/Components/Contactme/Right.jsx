@@ -1,218 +1,187 @@
 import React, { useRef, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
+
+const inputBase = {
+  background: 'rgba(255,255,255,0.04)',
+  border: '1px solid rgba(255,255,255,0.08)',
+  color: '#fff',
+  outline: 'none',
+  transition: 'border-color 0.3s, box-shadow 0.3s, background 0.3s',
+};
+
+const inputFocused = {
+  background: 'rgba(0,212,255,0.05)',
+  border: '1px solid rgba(0,212,255,0.4)',
+  boxShadow: '0 0 0 3px rgba(0,212,255,0.08)',
+};
+
+const Field = ({ label, children }) => (
+  <div className="flex flex-col gap-2">
+    <label className="text-xs font-mono tracking-[0.15em] uppercase"
+      style={{ color: 'rgba(255,255,255,0.4)' }}>
+      {label}
+    </label>
+    {children}
+  </div>
+);
 
 const Right = () => {
   const formRef = useRef();
-  
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    message: ''
-  });
-  
-  const [uiState, setUiState] = useState({
-    focusedField: null,
-    isSubmitting: false,
-    showSuccess: false,
-    error: null
-  });
+  const [formData, setFormData]   = useState({ fullName: '', email: '', message: '' });
+  const [focused, setFocused]     = useState(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess]     = useState(false);
+  const [error, setError]         = useState(null);
 
-  const handleInputChange = useCallback((field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  }, []);
-
-  const handleFocus = useCallback((field) => {
-    setUiState(prev => ({ ...prev, focusedField: field }));
-  }, []);
-
-  const handleBlur = useCallback(() => {
-    setUiState(prev => ({ ...prev, focusedField: null }));
-  }, []);
-
-  const resetForm = useCallback(() => {
-    setFormData({
-      fullName: '',
-      email: '',
-      message: ''
-    });
-    setUiState(prev => ({ ...prev, showSuccess: false, error: null }));
-  }, []);
+  const handleChange = (field, val) => setFormData(p => ({ ...p, [field]: val }));
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    
-    setUiState(prev => ({ ...prev, isSubmitting: true, error: null }));
-
+    setSubmitting(true);
+    setError(null);
     try {
-      await emailjs.sendForm(
-        'service_m5uqphp', 
-        'template_ihobl3l', 
-        formRef.current, 
-        { publicKey: 'TP7OjGImQSnUpk7K7' }
-      );
-      
-      setTimeout(() => {
-        setUiState(prev => ({ 
-          ...prev, 
-          isSubmitting: false, 
-          showSuccess: true 
-        }));
-      }, 300);
-      
-      setTimeout(() => {
-        resetForm();
-      }, 1000);
-      
-      setTimeout(() => {
-        setUiState(prev => ({ ...prev, showSuccess: false }));
-      }, 10000);
-      
-    } catch (error) {
-      console.error('Email failed:', error);
-      setUiState(prev => ({ 
-        ...prev, 
-        isSubmitting: false, 
-        error: 'Failed to send message. Please try again.' 
-      }));
+      await emailjs.sendForm('service_m5uqphp', 'template_ihobl3l', formRef.current, { publicKey: 'TP7OjGImQSnUpk7K7' });
+      setSubmitting(false);
+      setSuccess(true);
+      setFormData({ fullName: '', email: '', message: '' });
+      setTimeout(() => setSuccess(false), 8000);
+    } catch {
+      setSubmitting(false);
+      setError('Failed to send. Please try again.');
     }
   };
 
-  const inputClasses = `
-    bg-[#F3F4F6] w-full rounded-r-md 
-    placeholder:text-gray-500 placeholder:text-[14px] sm:placeholder:text-base 
-    text-black outline-none p-3 sm:p-2 text-[14px] sm:text-base 
-    transition-all duration-300 hover:bg-white focus:bg-white 
-    focus:ring-2 focus:ring-[#A08FFF]/50 focus:shadow-lg
-  `;
-
-  const getLabelClasses = (field) => `
-    text-[14px] sm:text-[16px] font-semibold transition-colors duration-300 
-    ${uiState.focusedField === field ? 'text-[#A08FFF]' : 'text-[#E5E5E5]'}
-  `;
-
-  const getInputTransform = (field) => 
-    uiState.focusedField === field ? 'transform scale-[1.02]' : '';
+  const getInputStyle = (field) => ({
+    ...inputBase,
+    ...(focused === field ? inputFocused : {}),
+  });
 
   return (
-    <div className='text-white w-full max-w-xl'>
-      {/* Header Text */}
-      <div className='mb-6 sm:mb-8'>
-        <p className='text-[14px] sm:text-[16px] font-medium leading-relaxed transition-all duration-300 hover:text-gray-300'> 
-          Whether you're looking to build a new website, improve an existing one, 
-          or bring a fresh idea to life — I'm here to help.
-        </p>
-      </div>
-      
-      {/* Success Message */}
-      {uiState.showSuccess && (
-        <div className={`mb-4 p-3 bg-green-500/20 border border-green-500/30 rounded-md transition-all duration-700 ease-in-out transform ${
-          uiState.showSuccess ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-4 scale-95'
-        }`}>
-          <p className='text-green-400 text-[14px] sm:text-[16px] font-medium flex items-center gap-2'>
-            <svg className="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            Message sent successfully! I'll get back to you soon.
-          </p>
+    <div className="w-full max-w-sm">
+
+      {/* Subtitle */}
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-sm leading-relaxed mb-7"
+        style={{ color: 'rgba(255,255,255,0.45)' }}
+      >
+        Whether you're looking to build a new website, improve an existing one,
+        or bring a fresh idea to life — I'm here to help.
+      </motion.p>
+
+      {/* Success */}
+      {success && (
+        <motion.div
+          initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
+          className="mb-5 p-3 rounded-xl flex items-center gap-2 text-sm font-mono"
+          style={{
+            background: 'rgba(34,197,94,0.08)',
+            border: '1px solid rgba(34,197,94,0.25)',
+            color: '#22c55e',
+          }}
+        >
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+          </span>
+          Message sent! I'll get back to you soon.
+        </motion.div>
+      )}
+
+      {/* Error */}
+      {error && (
+        <div className="mb-5 p-3 rounded-xl text-sm font-mono"
+          style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)', color: '#ef4444' }}>
+          {error}
         </div>
       )}
 
-      {/* Error Message */}
-      {uiState.error && (
-        <div className='mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-md'>
-          <p className='text-red-400 text-[14px] sm:text-[16px] font-medium'>
-            {uiState.error}
-          </p>
-        </div>
-      )}
-      
-      <form ref={formRef} onSubmit={sendEmail} className='relative'>
-        {/* Full Name Field */}
-        <div className='flex flex-col gap-2 sm:gap-3'>
-          <label className={getLabelClasses('fullName')}>
-            Full Name
-          </label>
-          <input 
-            className={`${inputClasses} h-10 sm:h-8 ${getInputTransform('fullName')}`}
-            type="text" 
+      <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-5">
+
+        <Field label="Full Name">
+          <input
+            type="text"
             name="fullName"
-            placeholder='Your full name' 
+            placeholder="Your full name"
             value={formData.fullName}
-            onChange={(e) => handleInputChange('fullName', e.target.value)}
-            onFocus={() => handleFocus('fullName')}
-            onBlur={handleBlur}
-            disabled={uiState.isSubmitting}
+            onChange={(e) => handleChange('fullName', e.target.value)}
+            onFocus={() => setFocused('fullName')}
+            onBlur={() => setFocused(null)}
+            disabled={submitting}
             required
+            className="w-full rounded-xl px-4 py-3 text-sm placeholder:text-white/20"
+            style={getInputStyle('fullName')}
           />
-        </div>
-           
-        {/* Email Field */}
-        <div className='flex flex-col gap-2 sm:gap-3 mt-4'>
-          <label className={getLabelClasses('email')}>
-            Email Address
-          </label>
-          <input 
-            className={`${inputClasses} h-10 sm:h-8 ${getInputTransform('email')}`}
-            type="email" 
+        </Field>
+
+        <Field label="Email Address">
+          <input
+            type="email"
             name="email"
-            placeholder='Your email' 
+            placeholder="your@email.com"
             value={formData.email}
-            onChange={(e) => handleInputChange('email', e.target.value)}
-            onFocus={() => handleFocus('email')}
-            onBlur={handleBlur}
-            disabled={uiState.isSubmitting}
-            required 
+            onChange={(e) => handleChange('email', e.target.value)}
+            onFocus={() => setFocused('email')}
+            onBlur={() => setFocused(null)}
+            disabled={submitting}
+            required
+            className="w-full rounded-xl px-4 py-3 text-sm placeholder:text-white/20"
+            style={getInputStyle('email')}
           />
-        </div>
-          
-        {/* Message Field */}
-        <div className='flex flex-col gap-2 sm:gap-3 mt-4'>
-          <label className={getLabelClasses('message')}>
-            Your Message
-          </label>
-          <textarea 
-            className={`${inputClasses} h-24 sm:h-20 resize-none ${getInputTransform('message')}`}
+        </Field>
+
+        <Field label="Your Message">
+          <textarea
             name="message"
-            placeholder='Share your thoughts...' 
+            placeholder="Share your thoughts..."
             value={formData.message}
-            onChange={(e) => handleInputChange('message', e.target.value)}
-            onFocus={() => handleFocus('message')}
-            onBlur={handleBlur}
-            disabled={uiState.isSubmitting}
-            required 
+            onChange={(e) => handleChange('message', e.target.value)}
+            onFocus={() => setFocused('message')}
+            onBlur={() => setFocused(null)}
+            disabled={submitting}
+            required
+            rows={4}
+            className="w-full rounded-xl px-4 py-3 text-sm placeholder:text-white/20 resize-none"
+            style={getInputStyle('message')}
           />
-        </div>
-         
-        {/* Submit Button */}
-        <button 
+        </Field>
+
+        {/* Submit */}
+        <button
           type="submit"
-          className={`
-            mt-6 sm:mt-4 px-6 py-3 sm:py-2 w-full sm:w-auto 
-            bg-[#A08FFF] text-white font-medium rounded-md 
-            transition-all duration-300 border border-transparent 
-            hover:shadow-lg relative overflow-hidden text-[14px] sm:text-base
-            ${uiState.isSubmitting 
-              ? 'bg-[#8B77F1] cursor-not-allowed' 
-              : 'hover:bg-[#8B77F1] hover:scale-[1.02] hover:shadow-[#A08FFF]/30'
-            }
-          `}
-          disabled={uiState.isSubmitting}
+          disabled={submitting}
+          className="relative w-full py-3 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300"
+          style={{
+            background: submitting
+              ? 'rgba(124,92,252,0.4)'
+              : 'linear-gradient(135deg, #7c5cfc, #00a8cc)',
+            boxShadow: submitting ? 'none' : '0 0 24px rgba(124,92,252,0.35)',
+            cursor: submitting ? 'not-allowed' : 'pointer',
+          }}
+          onMouseEnter={(e) => {
+            if (!submitting) e.currentTarget.style.boxShadow = '0 0 36px rgba(124,92,252,0.55)';
+          }}
+          onMouseLeave={(e) => {
+            if (!submitting) e.currentTarget.style.boxShadow = '0 0 24px rgba(124,92,252,0.35)';
+          }}
         >
-          <span className={`transition-opacity duration-300 ${uiState.isSubmitting ? 'opacity-0' : 'opacity-100'}`}>
-            Send Message
-          </span>
-          
-          {uiState.isSubmitting && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+          {submitting ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span>Sending...</span>
             </div>
+          ) : 'Send Message →'}
+
+          {/* Shimmer */}
+          {!submitting && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700 pointer-events-none" />
           )}
-          
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700"></div>
         </button>
+
       </form>
     </div>
   );

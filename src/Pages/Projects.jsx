@@ -6,25 +6,37 @@ import Allprojectssm from '../Components/Projects/Allprojectssm'
 
 const Projects = () => {
   return (
-    <div id='projects' className='mt-40 sm:mt-60 lg:mt-[120px] overflow-hidden'>
-     <motion.div  
-       variants={fadeIn('top',0.5)} 
-       initial="hidden" 
-       whileInView="show" 
-       viewport={{once:false,amount:0}}
-       className="px-4"
-     >
-       <h2 className="font-medium text-center text-3xl sm:text-4xl md:text-5xl text-white">Projects</h2>
-       <div className="w-32 sm:w-42 mt-4 sm:mt-6 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-8"></div>
-     </motion.div>
-     
-     <div className="hidden lg:block overflow-hidden">
-       <Allporjects/>
-     </div>
-     
-     <div className="block lg:hidden overflow-hidden">
-       <Allprojectssm/>
-     </div>
+    <div id="projects" className="mt-16 overflow-hidden">
+
+      {/* Header */}
+      <motion.div
+        variants={fadeIn('down', 0.2)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0 }}
+        className="text-center mb-6 px-4"
+      >
+        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3">
+          Projects
+        </h2>
+        <div
+          className="mx-auto h-[2px] w-24 rounded-full"
+          style={{ background: 'linear-gradient(90deg, #7c5cfc, #00d4ff)' }}
+        />
+        <p className="text-white/25 text-xs font-mono tracking-[0.2em] mt-4 uppercase">
+          Things I've built
+        </p>
+      </motion.div>
+
+      {/* Desktop timeline */}
+      <div className="hidden lg:block overflow-hidden">
+        <Allporjects />
+      </div>
+
+      {/* Mobile grid */}
+      <div className="block lg:hidden overflow-hidden">
+        <Allprojectssm />
+      </div>
     </div>
   )
 }

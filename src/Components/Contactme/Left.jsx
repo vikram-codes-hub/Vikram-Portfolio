@@ -1,90 +1,139 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Linkedin, Facebook, Instagram, Github, Download } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, Github, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const contactItems = [
+  {
+    id: 'location',
+    icon: MapPin,
+    text: 'Manipal University Jaipur, Rajasthan, India',
+    action: null,
+  },
+  {
+    id: 'email',
+    icon: Mail,
+    text: 'vikramsingh9475889367@gmail.com',
+    action: () => window.open('mailto:vikramsingh9475889367@gmail.com'),
+  },
+  {
+    id: 'phone',
+    icon: Phone,
+    text: '+91 8791629670',
+    action: () => window.open('tel:+918791629670'),
+  },
+  {
+    id: 'resume',
+    icon: Download,
+    text: 'Download My Resume',
+    action: () => window.open('https://drive.google.com/file/d/1vMwNYCsdydb3pbS1Vvqzc3MMun1PnN9B/view?usp=sharing', '_blank'),
+    highlight: true,
+  },
+];
+
+const socials = [
+  { icon: Linkedin, url: 'https://www.linkedin.com/in/vikram-singh-gangwar', label: 'LinkedIn', color: '#0ea5e9' },
+  { icon: Instagram, url: 'https://www.instagram.com/vikramsingh.gangwar', label: 'Instagram', color: '#a855f7' },
+  { icon: Github, url: 'https://github.com/vikram-codes-hub', label: 'GitHub', color: '#00d4ff' },
+];
 
 const Left = () => {
-  const [hoveredItem, setHoveredItem] = useState(null);
-
-  const handleDownloadResume = () => {
-    // Replace with the actual path to your resume file
-    const resumeUrl = 'https://drive.google.com/file/d/1vMwNYCsdydb3pbS1Vvqzc3MMun1PnN9B/view?usp=sharing';
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'Vikram_Singh_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const [hovered, setHovered] = useState(null);
 
   return (
-    <div className='text-white flex flex-col gap-6 sm:gap-8 md:gap-10 relative w-full max-w-xl'>
-      {/* Contact Information */}
-      <div className='flex flex-col gap-3 sm:gap-4'>
-        <div 
-          className='flex items-start sm:items-center gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-1 sm:hover:translate-x-2 cursor-pointer'
-          onMouseEnter={() => setHoveredItem('location')}
-          onMouseLeave={() => setHoveredItem(null)}
-        >
-          <MapPin className={`text-[#A08FFF] text-[18px] sm:text-[20px] transition-all duration-300 flex-shrink-0 mt-1 sm:mt-0 ${hoveredItem === 'location' ? 'scale-110 drop-shadow-lg' : ''}`}/>
-          <p className='text-[14px] sm:text-[16px] md:text-[18px] font-medium transition-all duration-300 hover:text-[#A08FFF] leading-relaxed break-words'>
-            Manipal University Jaipur - Jaipur Rajasthan India
-          </p>
-        </div>
-                      
-        <div 
-          className='flex items-start sm:items-center gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-1 sm:hover:translate-x-2 cursor-pointer'
-          onMouseEnter={() => setHoveredItem('email')}
-          onMouseLeave={() => setHoveredItem(null)}
-          onClick={() => window.open('mailto:vikramsingh9475889367@gmail.com')}
-        >
-          <Mail className={`text-[#A08FFF] text-[18px] sm:text-[20px] transition-all duration-300 flex-shrink-0 mt-1 sm:mt-0 ${hoveredItem === 'email' ? 'scale-110 drop-shadow-lg' : ''}`}/>
-          <p className='text-[14px] sm:text-[16px] md:text-[18px] font-medium transition-all duration-300 hover:text-[#A08FFF] leading-relaxed break-all'>
-            vikramsingh9475889367@gmail.com
-          </p>
-        </div>
+    <div className="flex flex-col gap-8 w-full max-w-sm">
 
-        <div 
-          className='flex items-center gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-1 sm:hover:translate-x-2 cursor-pointer'
-          onMouseEnter={() => setHoveredItem('phone')}
-          onMouseLeave={() => setHoveredItem(null)}
-          onClick={() => window.open('tel:+918791629670')}
-        >
-          <Phone className={`text-[#A08FFF] text-[18px] sm:text-[20px] transition-all duration-300 flex-shrink-0 ${hoveredItem === 'phone' ? 'scale-110 drop-shadow-lg' : ''}`}/>
-          <p className='text-[14px] sm:text-[16px] md:text-[18px] font-medium transition-all duration-300 hover:text-[#A08FFF] leading-relaxed'>
-            +91 8791629670
-          </p>
-        </div>
+      {/* Contact info items */}
+      <div className="flex flex-col gap-3">
+        {contactItems.map((item, i) => {
+          const Icon = item.icon;
+          const isHovered = hovered === item.id;
 
-        {/* Download Resume */}
-        <div 
-          className='flex items-center gap-3 sm:gap-4 transition-all duration-300 hover:translate-x-1 sm:hover:translate-x-2 cursor-pointer'
-          onMouseEnter={() => setHoveredItem('resume')}
-          onMouseLeave={() => setHoveredItem(null)}
-          onClick={handleDownloadResume}
-        >
-          <Download className={`text-[#A08FFF] text-[18px] sm:text-[20px] transition-all duration-300 flex-shrink-0 ${hoveredItem === 'resume' ? 'scale-110 drop-shadow-lg animate-bounce' : ''}`}/>
-          <p className='text-[14px] sm:text-[16px] md:text-[18px] font-medium transition-all duration-300 hover:text-[#A08FFF] leading-relaxed'>
-            Download My Resume
-          </p>
-        </div>
+          return (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0 }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
+              onClick={item.action || undefined}
+              onMouseEnter={() => setHovered(item.id)}
+              onMouseLeave={() => setHovered(null)}
+              className="flex items-center gap-4 p-3 rounded-xl transition-all duration-300 group"
+              style={{
+                cursor: item.action ? 'pointer' : 'default',
+                background: isHovered ? 'rgba(0,212,255,0.06)' : 'rgba(255,255,255,0.02)',
+                border: `1px solid ${isHovered ? 'rgba(0,212,255,0.25)' : 'rgba(255,255,255,0.06)'}`,
+                transform: isHovered ? 'translateX(6px)' : 'translateX(0)',
+              }}
+            >
+              {/* Icon box */}
+              <div
+                className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300"
+                style={{
+                  background: isHovered ? 'rgba(0,212,255,0.12)' : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${isHovered ? 'rgba(0,212,255,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                  boxShadow: isHovered ? '0 0 12px rgba(0,212,255,0.2)' : 'none',
+                }}
+              >
+                <Icon
+                  size={16}
+                  style={{ color: isHovered ? '#00d4ff' : 'rgba(255,255,255,0.45)', transition: 'color 0.3s' }}
+                />
+              </div>
+
+              <p
+                className="text-sm font-medium leading-snug transition-colors duration-300 break-all"
+                style={{ color: isHovered ? '#fff' : 'rgba(255,255,255,0.6)' }}
+              >
+                {item.highlight ? (
+                  <span style={{ color: isHovered ? '#00d4ff' : 'rgba(0,212,255,0.7)' }}>
+                    {item.text}
+                  </span>
+                ) : item.text}
+              </p>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* Social Media Links */}
-      <div className='flex flex-wrap gap-3 sm:gap-4 text-[20px] sm:text-[22px] md:text-[24px] cursor-pointer'>
-        <Linkedin 
-          className='transition-all duration-300 hover:scale-110 sm:hover:scale-125 hover:text-[#A08FFF] hover:drop-shadow-lg hover:-translate-y-1'
-          onClick={() => window.open('https://www.linkedin.com/in/vikram-singh-gangwar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank')}
-        />
-                
-        <Instagram 
-          className='transition-all duration-300 hover:scale-110 sm:hover:scale-125 hover:text-[#A08FFF] hover:drop-shadow-lg hover:-translate-y-1'
-          onClick={() => window.open('https://www.instagram.com/vikramsingh.gangwar?igsh=Z2pjc3BhZWx4N2h3', '_blank')}
-        />
+      {/* Divider */}
+      <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, rgba(0,212,255,0.2), transparent)' }} />
 
-        <Github 
-          className='transition-all duration-300 hover:scale-110 sm:hover:scale-125 hover:text-[#A08FFF] hover:drop-shadow-lg hover:-translate-y-1'
-          onClick={() => window.open('https://github.com/vikram-codes-hub', '_blank')}
-        />
-      </div>
+      {/* Social icons */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0 }}
+        transition={{ delay: 0.4 }}
+        className="flex items-center gap-3"
+      >
+        {socials.map(({ icon: Icon, url, label, color }) => (
+          <button
+            key={label}
+            onClick={() => window.open(url, '_blank')}
+            title={label}
+            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = `${color}18`;
+              e.currentTarget.style.border = `1px solid ${color}50`;
+              e.currentTarget.style.boxShadow = `0 0 14px ${color}30`;
+              e.currentTarget.style.transform = 'translateY(-3px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+              e.currentTarget.style.border = '1px solid rgba(255,255,255,0.08)';
+              e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <Icon size={17} style={{ color: 'rgba(255,255,255,0.5)' }} />
+          </button>
+        ))}
+      </motion.div>
     </div>
   );
 };
