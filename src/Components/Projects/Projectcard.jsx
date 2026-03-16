@@ -91,7 +91,7 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
             href={Link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300"
+            className="relative z-10 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300"
             style={{
               background: 'linear-gradient(135deg, #7c5cfc, #00a8cc)',
               boxShadow: '0 0 18px rgba(124,92,252,0.25)',

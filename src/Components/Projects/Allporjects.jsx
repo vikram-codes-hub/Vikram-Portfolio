@@ -58,7 +58,7 @@ const Allporjects = () => {
 
               {/* Index label — same side as card, top corner */}
               <div
-                className="absolute text-[11px] font-mono font-bold"
+                className="absolute text-[11px] font-mono font-bold z-20"
                 style={{
                   top: '40%',
                   left: isRight ? '54%' : 'auto',
@@ -72,7 +72,7 @@ const Allporjects = () => {
 
               {/* Card */}
               <motion.div
-                className="absolute"
+                className="absolute z-30"
                 style={{
                   width: '44%',
                   top: '50%',
