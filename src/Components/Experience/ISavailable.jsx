@@ -89,9 +89,9 @@ const ISavailable = () => {
               Let's Connect →
             </a>
 
-            {/* Resume — same style as the certificate button in ExperienceCard */}
+           
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1fWr4q98gd-MORgrsXelh6YVhwcx2kBjx/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="text-[11px] font-mono px-2.5 py-0.5 rounded-full transition-all duration-200"

@@ -46,14 +46,14 @@ const Skillsmain = () => {
                 style={{
                   background: active
                     ? "linear-gradient(135deg, #7c5cfc, #00a8cc)"
-                    : "rgba(255,255,255,0.04)",
-                  color: active ? "#fff" : "rgba(255,255,255,0.4)",
+                    : "rgba(255,255,255,0.08)",
+                  color: active ? "#fff" : "rgba(255,255,255,0.6)",
                   border: active
-                    ? "1px solid transparent"
-                    : "1px solid rgba(255,255,255,0.09)",
+                    ? "1px solid rgba(124,92,252,0.5)"
+                    : "1px solid rgba(255,255,255,0.15)",
                   boxShadow: active
                     ? "0 0 20px rgba(124,92,252,0.4)"
-                    : "none",
+                    : "0 0 10px rgba(255,255,255,0.05)",
                 }}
               >
                 {tab}
