@@ -29,7 +29,7 @@ const Projects = () => {
       </motion.div>
 
       {/* Desktop timeline */}
-      <div className="hidden lg:block overflow-hidden">
+      <div className="hidden lg:block">
         <Allporjects />
       </div>
 

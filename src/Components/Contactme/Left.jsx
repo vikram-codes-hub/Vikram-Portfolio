@@ -25,7 +25,7 @@ const contactItems = [
     id: 'resume',
     icon: Download,
     text: 'Download My Resume',
-    action: () => window.open('https://drive.google.com/file/d/1vMwNYCsdydb3pbS1Vvqzc3MMun1PnN9B/view?usp=sharing', '_blank'),
+    action: () => window.open('https://drive.google.com/file/d/1xoOKYwr0uEbVZrlY_XMOKgcnEvxI27vy/view?usp=sharing', '_blank'),
     highlight: true,
   },
 ];

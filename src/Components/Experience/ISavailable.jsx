@@ -91,7 +91,7 @@ const ISavailable = () => {
 
            
             <a
-              href="https://drive.google.com/file/d/1fWr4q98gd-MORgrsXelh6YVhwcx2kBjx/view?usp=sharing"
+              href="https://drive.google.com/file/d/1xoOKYwr0uEbVZrlY_XMOKgcnEvxI27vy/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="text-[11px] font-mono px-2.5 py-0.5 rounded-full transition-all duration-200"

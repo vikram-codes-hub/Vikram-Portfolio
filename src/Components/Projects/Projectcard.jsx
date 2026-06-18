@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
-const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidth = false }) => {
+const Projectcard = ({ project, tech, description, builtFor, pimg, ongoing, Link, Live_Link, fullWidth = false }) => {
   const [hovered, setHovered] = useState(false)
 
   return (
     <div
-      className={`relative rounded-2xl overflow-hidden flex flex-col transition-all duration-300 ${fullWidth ? 'w-full' : 'w-full max-w-[350px]'}`}
+      className={`relative rounded-2xl overflow-hidden flex flex-col h-fit transition-all duration-300 ${fullWidth ? 'w-full' : 'w-full max-w-[350px]'}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -18,7 +18,7 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
       <div
         className="absolute top-0 left-0 right-0 h-[2px] z-10 transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(90deg, #7c5cfc, #00d4ff, transparent)',
+          background: 'linear-gradient(90deg, #7c5cfc, #00a8cc, transparent)',
           opacity: hovered ? 1 : 0.3,
         }}
       />
@@ -46,7 +46,6 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
           </div>
         )}
 
-        {/* Corner dot */}
         <div
           className="absolute top-3 left-3 w-1.5 h-1.5 rounded-full"
           style={{
@@ -58,7 +57,7 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-5 gap-3">
+      <div className="flex flex-col p-5 gap-3">
         <h3
           className="text-base font-bold leading-snug transition-colors duration-300"
           style={{ color: hovered ? '#fff' : 'rgba(255,255,255,0.85)' }}
@@ -69,6 +68,13 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
         <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
           {description}
         </p>
+
+        {/* Digital Heroes Highlight */}
+        {builtFor && (
+          <div className="text-[10px] italic text-cyan-400/80 font-medium py-1 px-2 border-l-2 border-cyan-500/50 bg-cyan-900/10">
+            ⚡ Built for Digital Heroes: {builtFor}
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-1.5 mt-1">
           {(tech || []).map((t, i) => (
@@ -86,7 +92,14 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
           ))}
         </div>
 
-        <div className="mt-auto pt-3">
+        {/* Links Section */}
+        <div className="mt-auto pt-3 flex flex-col gap-2">
+          {Live_Link && (
+            <a href={Live_Link} target="_blank" rel="noopener noreferrer" className="text-[10px] text-center text-cyan-400 hover:text-white transition-colors uppercase tracking-widest font-mono">
+              View Live Demo →
+            </a>
+          )}
+          
           <a
             href={Link}
             target="_blank"
@@ -96,16 +109,8 @@ const Projectcard = ({ project, tech, description, pimg, ongoing, Link, fullWidt
               background: 'linear-gradient(135deg, #7c5cfc, #00a8cc)',
               boxShadow: '0 0 18px rgba(124,92,252,0.25)',
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 28px rgba(124,92,252,0.5)'
-              e.currentTarget.style.transform = 'translateY(-1px)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 18px rgba(124,92,252,0.25)'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
           >
-            View Project
+            GitHub Repository
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>

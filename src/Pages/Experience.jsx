@@ -7,7 +7,7 @@ import ISavailable from '../Components/Experience/ISavailable'
 
 const Experience = () => {
   return (
-    <div id='experience' className='overflow-hidden mt-10'>
+    <div id='experience' className='overflow-hidden mt-30'>
         <motion.h3 
           variants={fadeIn('down',0.2)} 
           initial="hidden" 
