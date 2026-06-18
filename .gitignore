@@ -28,6 +28,6 @@ Thumbs.db
 .idea/
 
 # Optional: local development preview screenshots
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
