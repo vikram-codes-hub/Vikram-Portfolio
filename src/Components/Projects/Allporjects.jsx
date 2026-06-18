@@ -20,8 +20,9 @@ const projects = [
       "Gemini API",
       "Groq API",
     ],
-    Description:
-      "A student-focused web app to discover nearby hostels with photos, ratings, chat support, carpooling, and event updates—making campus living easy and connected.",
+   Description:
+"An AI-powered platform for generating personalized interview questions, tracking practice sessions, and improving interview preparation."
+,
     BuiltFor:
       "Digital heroes who need an intelligent, streamlined companion to navigate and master the complexities of campus life.",
     pimg: prepaiimg,
